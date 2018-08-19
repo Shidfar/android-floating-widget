@@ -1,15 +1,19 @@
 package com.floatingwidgetchathead_demo;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-public class KeyListenner implements View.OnKeyListener {
+class KeyListener implements View.OnKeyListener {
     private Context _context;
 
-    public void setContext(Context _context) {
+    public void set_context(Context _context) {
         this._context = _context;
     }
 

@@ -1,7 +1,6 @@
 package com.floatingwidgetchathead_demo;
 
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.PixelFormat;
@@ -11,21 +10,18 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 /**
  * Created by sonu on 28/03/17.
  */
 
-public class FloatingWidgetService extends Service implements View.OnClickListener, View.OnKeyListener {
+public class FloatingWidgetService extends Service implements View.OnClickListener {
     private WindowManager mWindowManager;
     private View mFloatingWidgetView, collapsedView, expandedView;
     private ImageView remove_image_view;
@@ -133,7 +129,6 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
     /*  Implement Touch Listener to Floating Widget Root View  */
     private void implementTouchListenerToFloatingWidgetView() {
-
         //Drag and move floating view using user's touch action.
         mFloatingWidgetView.findViewById(R.id.root_container).setOnTouchListener(new View.OnTouchListener() {
 
@@ -299,8 +294,6 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         mFloatingWidgetView.findViewById(R.id.close_floating_view).setOnClickListener(this);
         mFloatingWidgetView.findViewById(R.id.close_expanded_view).setOnClickListener(this);
         mFloatingWidgetView.findViewById(R.id.open_activity_button).setOnClickListener(this);
-        mFloatingWidgetView.findViewById(R.id.close_floating_view).setOnKeyListener(this);
-        mFloatingWidgetView.findViewById(R.id.close_expanded_view).setOnKeyListener(this);
     }
 
 
@@ -492,15 +485,4 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     }
 
 
-    @Override
-    public boolean onKey(View v, int keyCode, KeyEvent event) {
-        Context context = getApplicationContext();
-        CharSequence text = "Key pressed!";
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        Log.i(">>>", "...................");
-        return true;
-    }
 }
