@@ -62,6 +62,7 @@ public class VolumeKeyController {
 //                            AudioManager.ADJUST_LOWER, AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
 //                }
 //                setCurrentVolume(audio.getStreamVolume(STREAM_TYPE));
+                
             }
         };
     }
